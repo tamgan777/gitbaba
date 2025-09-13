@@ -1,72 +1,61 @@
-// import ProductCard from './ProductCard.jsx'
-// import Student from './Student.jsx'
-// import Greetings from './Greetings.jsx'
-import BlogPost from "./BlogPost.jsx"
-import './App.css'
+import { useState } from "react";
 function App() {
-  //  const idCard={
-  //   idName="gitbaba",
-  //   idNumber=69,
-  //   idAddress="gitlokah",
-  //   idBloodGroup="O+",
-  //   idCollegeName="GITBABA HUB",
-  //   idAge=18
+  const name = "eyy mandhala";
+  const [count, setcount] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+  console.log(formData);
+  console.log(email);
+  const handleClick = () => {
+    alert("your login credentials are submitted");
+  }
+  const handleIncrement = () => {
+    setcount((prevCount) => prevCount + 1);
+    console.log(count);
 
-  //  }
+  }
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  }
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  }
+  const handleDecrement = () => {
+    setcount((prevCount) => prevCount - 1);
+    console.log(count);
+  }
+  const handleReset = () => {
+    setcount(0);
+    console.log(count);
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert('email:' + formData.email + ' password:' + formData.password);
 
+  }
+  const handleChange = (event) => {
+   setFormData({
+    ...formData,
+    [event.target.name]:[event.target.value]
 
-  //   const Product1={
-  //     ProductName="laptop",
-  //     ProductPrice=45000,
-  //     isavaliable=true
-  //   }
-  // const Product2={
-
-  // }
-
-  //   const Product=[
-  //   {ProductName:"laptop",ProductPrice:45000,isavaliable:true},
-  //   {ProductName:"mobile",ProductPrice:25000,isavaliable:false},
-  //   {ProductName:"ac",ProductPrice:65000,isavaliable:true}
-  // ]
-  const Post = [
-    { id: 1, author: "gitbaba", title: "post1", body: "this is post1" },
-    { id: 2, author: "gitpapa", title: "post2", body: "this is post2" },
-    { id: 3, author: "gitthatha", title: "post3", body: "this is post3" }
-  ]
-  // const reciverdata="hello gitbaba"
-  // const age=18
-
-
-  return (
-    <div className="main" >
-
-      {/* <Greetings greetings={reciverdata} ReciverAge={age}/> */}
-
-      {/* <Student Student={idCard}/> */}
-      {/* <ProductCard Product={Product1} /> */}
-
-      {/* // Product.map((Product)=>{ */}
-
-      {/* // <ProductCard */}
-      {/* //  ProductName={Product.ProductName}
-          //  ProductPrice={Product.ProductPrice}
-          //  isavaliable={Product.isavaliable}
-           
-          // })  */}
-      {
-        Post.map((post) => (
-          <BlogPost
-            key={post.id}
-            Author={post.author}
-            Title={post.title}
-            Body={post.body}
-          />
-        ))
-      }
-
-    </div>
-  );
+  })
 }
-
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input name="email" type="email" placeholder="enter your email" onChange={handleChange} value={formData.email}/>
+        <input name="password" type="password" placeholder="enter your password" onChange={handleChange} value={formData.password} />
+        <h1>{count}</h1>
+        <button type="button" onClick={handleIncrement}>INCREMENT</button>
+        <button type="button" onClick={handleDecrement}>DECREMENT</button>
+        <button type="button" onClick={handleReset}>RESET</button>
+        <button type="submit" onClick={handleClick}>SUBMIT</button>
+      </form>
+    </div>
+  )
+}
 export default App;
