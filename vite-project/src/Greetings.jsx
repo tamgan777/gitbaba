@@ -1,4 +1,5 @@
-function Greetings({ReciverAge, ReciverName}) {
-    return <div>{ReciverAge}</div>
+function Greetings({greetings}) {
+    return <div>
+        <p>{greetings.ReciverAge}</p></div>
 }
 export default Greetings;
