@@ -1,0 +1,21 @@
+.price{
+    color:grey;
+    font-size:20px;
+}
+.title{
+    font-size:25px;
+    color:blue;
+    font-weight:bold;}
+.available{
+    color:green;
+}
+.notavailable{
+    color:red;
+}   
+.product-card{
+    border:2px solid black;
+    width:300px;
+    padding:10px;
+    margin:10px;
+    box-shadow:2px 2px 10px grey;
+}
