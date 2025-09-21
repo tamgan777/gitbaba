@@ -3,10 +3,10 @@ import {Bomb} from 'lucide-react'
 
 const NavBar = () => {
     return (
-        <div className="h-16 flex justify-around items-center border-1 bg-gray-900 border-gray-200 w-full text-1x1">
+        <div className="h-full flex justify-around items-center border-1  bg-gray-900 border-gray-200 sm:w-[90%] text-x1">
             <div className='flex absolute '>
                 <Bomb className='relative right-1 top-2 text-yellow-50'/>
-                <p className=" text-white  text-3xl">BlogVerse</p>
+                <p className=" text-white text-sm  md:text-3xl">BlogVerse</p>
             </div>
             <div className='relative flex right-70'>
                 <Link to="/" className=" text-purple-500 px-5 py-2 rounded-lg">Home</Link>
